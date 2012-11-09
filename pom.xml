@@ -3,7 +3,7 @@
 
   <groupId>com.mycompany.app</groupId>
   <artifactId>my-app</artifactId>
-  <version>1.2-SNAPSHOT</version>
+  <version>1.2</version>
   <packaging>jar</packaging>
 
   <name>my-app</name>
@@ -11,7 +11,7 @@
 
   <scm>
     <connection>scm:git:git@github.com:maksym-makukha/test-jenkins.git</connection>
-    <tag>HEAD</tag>
+    <tag>v1.2</tag>
   </scm>
     <distributionManagement>
         <repository>
