@@ -12,6 +12,32 @@
   <scm>
     <connection>scm:git:git@github.com:maksym-makukha/test-jenkins.git</connection>
   </scm>
+    <distributionManagement>
+        <repository>
+            <id>releases-repo</id>
+            <url>http://fedora:8080/artifactory/libs-release-local</url>
+        </repository>
+    </distributionManagement>
+
+    <repositories>
+        <repository>
+            <id>local-repo</id>
+            <url>http://fedora:8080/artifactory/repo</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>local-plugins-repo</id>
+            <url>http://fedora:8080/artifactory/repo</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -28,10 +54,15 @@
 
  <build>
    <plugins>
-     <plugin>
-       <groupId>org.apache.maven.plugins</groupId>
-       <artifactId>maven-release-plugin</artifactId>
-     </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
+                    <tagNameFormat>v@{project.version}</tagNameFormat>
+                </configuration>
+            </plugin>
    </plugins>
  </build>
 
